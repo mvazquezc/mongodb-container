@@ -32,7 +32,9 @@ trap 'cleanup' SIGINT SIGTERM
 #  "mongodb-0" -> "0"
 #  "mongodb-1" -> "1"
 #  "mongodb-2" -> "2"
-export readonly MEMBER_ID="${HOSTNAME##*-}"
+if [[ -z "$MEMBER_ID" ]]; then
+  export readonly MEMBER_ID="${HOSTNAME##*-}"
+fi
 
 mongo_common_args=
 
