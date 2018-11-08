@@ -91,11 +91,13 @@ function update_users() {
 }
 
 if ! [[ -v MEMBER_ID ]]; then
-  update_users
+#  update_users
+echo "Create users here"
 else
   if [ "${MEMBER_ID}" -eq 0 ]; then
     info "Creating MongoDB users ..."
-    mongo_create_admin
+    #mongo_create_admin
+    echo "Create admin here"
     [[ -v CREATE_USER ]] && mongo_create_user "-u admin -p${MONGODB_ADMIN_PASSWORD}"
   fi
 fi
